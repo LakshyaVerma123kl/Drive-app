@@ -2,8 +2,6 @@ const express = require('express');
 const Folder = require('../models/Folder');
 const Image = require('../models/Image');
 const auth = require('../middleware/auth');
-const fs = require('fs');
-const path = require('path');
 
 const router = express.Router();
 

@@ -49,18 +49,7 @@ app.use('/api/folders', folderRoutes);
 app.use('/api/images',  imageRoutes);
 app.get('/api/health',  (req, res) => res.json({ status: 'ok' }));
 
-app.get('/api/debug', (req, res) => {
-  res.json({
-    node: process.version,
-    env_mongo: process.env.MONGO_URI ? 'SET' : 'MISSING',
-    env_jwt: process.env.JWT_SECRET ? 'SET' : 'MISSING',
-    env_cloudinary_name: process.env.CLOUDINARY_CLOUD_NAME ? 'SET' : 'MISSING',
-    env_cloudinary_key: process.env.CLOUDINARY_API_KEY ? 'SET' : 'MISSING',
-    env_cloudinary_secret: process.env.CLOUDINARY_API_SECRET ? 'SET' : 'MISSING',
-    mongoose_state: mongoose.connection.readyState,
-    isConnected,
-  });
-});
+
 
 if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
   const PORT = process.env.PORT || 5000;
